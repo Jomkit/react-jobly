@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -12,9 +12,9 @@ const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 export default class JoblyApi {
   // the token for interactive with the API will be stored here.
-  static token;
+  static token: string;
 
-  static async request(endpoint, data = {}, method = "get") {
+  static async request(endpoint: string, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
     //there are multiple ways to pass an authorization token, this is how you pass it in the header.
@@ -28,9 +28,11 @@ export default class JoblyApi {
     try {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
-      console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
-      throw Array.isArray(message) ? message : [message];
+        if(err instanceof AxiosError && err.response) {
+        console.error("API Error:", err.response);
+        let message = err.response.data.error.message;
+        throw Array.isArray(message) ? message : [message];
+      }
     }
   }
 
@@ -38,7 +40,13 @@ export default class JoblyApi {
 
   /** Get details on a company by handle. */
 
-  static async getCompany(handle) {
+  static async getCompanies() {
+    let res = await this.request(`companies/`);
+    return res.companies;
+  }
+
+
+  static async getCompany(handle: string) {
     let res = await this.request(`companies/${handle}`);
     return res.company;
   }

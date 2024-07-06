@@ -1,0 +1,24 @@
+import { Route, Routes } from 'react-router-dom'
+import Homepage from './Homepage';
+import Companies from './Companies';
+import Jobs from './Jobs';
+import Company from './Company';
+import Login from './Login';
+import Profile from './Profile';
+
+const RoutesList = () => {
+  return (
+    <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/companies" element={<Companies />} />
+
+        <Route path="/companies/:company" element={<Company details={{ name: "company1", description: "This is company 1"}} />} />
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/:loginParam" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+
+    </Routes>
+  )
+}
+
+export default RoutesList
