@@ -38,14 +38,26 @@ export default class JoblyApi {
 
   // Individual API routes
 
-  /** Get details on a company by handle. */
+  /** Get details on all companies */
+  static async getCompanies(qParam: Object = {}) {
+    let url = `companies/`;
+    let isFirst: boolean = true;
+    // if qParam is not empty, append it to the url
+    for(const [key, value] of Object.entries(qParam)) {
+      if(value && isFirst){
+        url += `?${key}=${value}`;
+        isFirst = false;
+      }else if(value) {
+        url += `&${key}=${value}`;
+      }
+    }
 
-  static async getCompanies() {
-    let res = await this.request(`companies/`);
+    let res = await this.request(url);
     return res.companies;
   }
-
-
+  
+  
+  /** Get details on a company by handle. */
   static async getCompany(handle: string) {
     let res = await this.request(`companies/${handle}`);
     return res.company;
