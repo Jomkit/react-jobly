@@ -38,6 +38,7 @@ export default class JoblyApi {
 
   // Individual API routes
 
+  /************** COMPANIES **************/
   /** Get details on all companies */
   static async getCompanies(qParam: Object = {}) {
     let url = `companies/`;
@@ -56,14 +57,35 @@ export default class JoblyApi {
     return res.companies;
   }
   
-  
   /** Get details on a company by handle. */
   static async getCompany(handle: string) {
     let res = await this.request(`companies/${handle}`);
     return res.company;
   }
   
+  /****************** JOBS ******************/
+  static async getJobs(qParam: Object = {}) {
+    let url = `jobs/`;
+    let isFirst: boolean = true;
+    // if qParam is not empty, append it to the url
+    for(const [key, value] of Object.entries(qParam)) {
+      if(value && isFirst){
+        url += `?${key}=${value}`;
+        isFirst = false;
+      }else if(value) {
+        url += `&${key}=${value}`;
+      }
+    }
+    let res = await this.request(url);
+    return res.jobs;
+  }
+
+  static async getJob(id: number) {
+    let res = await this.request(`jobs/${id}`);
+    return res.job;
+  }
 }
+
 
 // for now, put token ("testuser" / "password" on class)
 JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +

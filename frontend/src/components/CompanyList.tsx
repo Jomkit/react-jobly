@@ -1,14 +1,9 @@
 import { useEffect } from 'react';
 import JoblyApi from '../api.ts';
 import CompanyCard from './CompanyCard.tsx';
-import { companiesInterface } from '../types.ts';
+import { companiesInterface, propsListInterface } from '../types.ts';
 
-interface propsInterface {
-  companiesData: companiesInterface[] | null;
-  setCompaniesData: Function;
-}
-
-const CompanyList = ({ companiesData, setCompaniesData }: propsInterface) => {
+const CompanyList = ({ data, setData }: propsListInterface) => {
 
   // Run on initial page load
   useEffect(() => {
@@ -16,21 +11,21 @@ const CompanyList = ({ companiesData, setCompaniesData }: propsInterface) => {
       const res = await JoblyApi.getCompanies();
       console.log(res);
       
-      setCompaniesData(res);
+      setData(res);
     }
     getCompanies();
   }, [])
   
   // Before loading company data, or no matching company
-  if(companiesData === null) {
+  if(data === null) {
     return (<p>Loading...</p>);
-  }else if(companiesData.length === 0) {
+  }else if(data.length === 0) {
     return (<h3>No matching companies</h3>);
   }
   
   return (
     <ul style={{listStyleType:"none", paddingLeft:"0"}}>
-      {companiesData?.map( cmp => (
+      {(data as companiesInterface[])?.map( cmp => (
         <CompanyCard key={cmp.handle} title={cmp.name} description={cmp.description} logoUrl={cmp.logoUrl} />
       ))}
     </ul>

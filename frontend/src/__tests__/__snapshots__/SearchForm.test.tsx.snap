@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <form>
+    <div
+      class="m-lg-4 align-items-center row"
+    >
+      <div
+        class="col-lg-6"
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="visually-hidden form-label"
+            for="name"
+          >
+            Name
+          </label>
+          <input
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="search companies"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-lg-2"
+      >
+        <div
+          class="mb-3 form-floating"
+        >
+          <input
+            class="form-control-sm form-control"
+            id="minEmployees"
+            min="0"
+            name="minEmployees"
+            placeholder="0"
+            type="number"
+            value="0"
+          />
+          <label
+            class="form-label"
+            for="minEmployees"
+          >
+            Min Employees
+          </label>
+        </div>
+      </div>
+      <div
+        class="col-lg-2"
+      >
+        <div
+          class="mb-3 form-floating"
+        >
+          <input
+            class="form-control-sm form-control"
+            id="maxEmployees"
+            min="0"
+            name="maxEmployees"
+            placeholder="0"
+            type="number"
+            value="10000"
+          />
+          <label
+            class="form-label"
+            for="maxEmployees"
+          >
+            Max Employees
+          </label>
+        </div>
+      </div>
+      <div
+        class="col-2 col"
+      >
+        <button
+          class="btn bg-primary text-light btn-block"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

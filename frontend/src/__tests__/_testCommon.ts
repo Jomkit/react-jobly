@@ -15,4 +15,21 @@ const FAKEDATA = [
     }
 ];
 
-export { FAKEDATA };
+const TESTJOBS = [
+    {
+        id: 1,
+        title: "test job 1",
+        salary: 1000,
+        equity: "0.1",
+        companyHandle: "test1"
+    },
+    {
+        id: 2,
+        title: "test job 2",
+        salary: 2000,
+        equity: "0.2",
+        companyHandle: "test2"
+    }
+]
+
+export { FAKEDATA, TESTJOBS };

@@ -16,7 +16,7 @@ const NavBar = () => {
                 <NavLink to="/jobs">Jobs</NavLink>
             </NavItem>
           </Nav>
-            <NavItem>
+            <NavItem style={{ listStyle: "none" }}>
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
                 <NavLink to="/profile">Profile</NavLink>

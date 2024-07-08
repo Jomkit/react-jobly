@@ -49,10 +49,10 @@ const SearchForm = ({ setCompaniesData }: { setCompaniesData: Function }) => {
                         className='visually-hidden'
                         for='name'
                     >
-                        Search
+                        Name
                     </Label>
                     <Input
-                    id='search'
+                    id='name'
                     name='name'
                     placeholder='search companies'
                     type="text"

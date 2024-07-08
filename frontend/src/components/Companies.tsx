@@ -8,7 +8,7 @@ const Companies = () => {
   return (
     <>
         <SearchForm setCompaniesData={setCompaniesData} />
-        <CompanyList companiesData={companiesData} setCompaniesData={setCompaniesData} />
+        <CompanyList data={companiesData} setData={setCompaniesData} />
     </>
   )
 }
