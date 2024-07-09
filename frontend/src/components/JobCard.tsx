@@ -12,8 +12,8 @@ const JobCard = ({ title, salary, equity, companyName }: jobsInterface) => {
                 <Row>
                     <Col sm="8" className='text-start'>
                         <p>{ companyName }</p>
-                        <p>{ salary }</p>
-                        <p>{ equity }</p>
+                        <p>Salary: { salary }</p>
+                        <p>Equity: { equity === null ? "n/a" : (+equity).toFixed(2) }</p>
                     </Col>
                     <Col sm="4" className='text-end mt-auto pb-2'>
                         <Button className='bg-danger'>Apply</Button>

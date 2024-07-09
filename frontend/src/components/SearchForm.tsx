@@ -9,6 +9,11 @@ interface formDataInterface {
 }
 
 const SearchForm = ({ setCompaniesData }: { setCompaniesData: Function }) => {
+    const InitialState = {
+        name: "", 
+        minEmployees: 0,
+        maxEmployees: 10000
+    }
     const [ formData, setFormData ] = useState({
         name: "", 
         minEmployees: 0,
@@ -16,7 +21,7 @@ const SearchForm = ({ setCompaniesData }: { setCompaniesData: Function }) => {
     });
 
     // Need to apply filter to form data
-    async function getFilterCompanies(filterParams: formDataInterface) {
+    async function getFiltered(filterParams: formDataInterface) {
         try{
             const res = await JoblyApi.getCompanies(filterParams);
             setCompaniesData(res);
@@ -37,7 +42,7 @@ const SearchForm = ({ setCompaniesData }: { setCompaniesData: Function }) => {
     function handleSubmit(evt: React.FormEvent){
         evt.preventDefault();
         console.log("Submitting...");
-        getFilterCompanies(formData);
+        getFiltered(formData);
     }
 
   return (

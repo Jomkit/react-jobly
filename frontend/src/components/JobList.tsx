@@ -18,7 +18,7 @@ const JobList = ({data, setData}: propsListInterface) => {
   return (
     <ul style={{ listStyleType:"none", padding:'0' }}>
       {(data as jobsInterface[])?.map( job => (
-        <JobCard key={job.id} title={job.title} salary={job.salary} equity={job.equity} companyName={job.companyName} />
+        <JobCard key={job.id} title={job.title} salary={job.salary} equity={job.equity} companyName={job.companyName }/>
       ))}
     </ul>
   )

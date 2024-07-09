@@ -3,12 +3,12 @@ import { TESTJOBS } from "./_testCommon";
 import JobCard from "../components/JobCard";
 import { MemoryRouter } from "react-router-dom";
 
-const testJob = TESTJOBS[0];
+const { id, title, salary, equity, companyName } = TESTJOBS[0];
 
 it('should render without crashing', () => { 
     render(
         <MemoryRouter>
-            <JobCard jobData={testJob} />
+            <JobCard key={id} title={title} salary={salary} equity={equity} companyName={companyName } />
         </MemoryRouter>
     );
 })

@@ -13,6 +13,7 @@ interface jobsInterface {
   salary: number;
   equity: number;
   companyName: string;
+  companyHandle?: string;
 }
 interface propsListInterface {
   data: companiesInterface[] | jobsInterface[] | null;

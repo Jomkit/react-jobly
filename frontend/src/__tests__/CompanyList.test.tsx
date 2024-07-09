@@ -1,7 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
 import CompanyList from "../components/CompanyList";
 import { MemoryRouter } from "react-router-dom";
-import { vi } from "vitest";
 import JoblyApi from "../api.ts";
 import { FAKEDATA } from "./_testCommon.ts";
 
@@ -11,7 +10,7 @@ JoblyApi.getCompanies = vi.fn().mockResolvedValue(FAKEDATA);
 it('should render without crashing', () => { 
     render(
         <MemoryRouter>
-            <CompanyList companiesData={FAKEDATA} setCompaniesData={vi.fn()} />
+            <CompanyList data={FAKEDATA} setData={vi.fn()} />
         </MemoryRouter>
     );
 })
@@ -19,7 +18,7 @@ it('should render without crashing', () => {
 it('should display a list of companies', async () => { 
     const { getAllByRole } = render(
         <MemoryRouter>
-            <CompanyList companiesData={FAKEDATA} setCompaniesData={vi.fn()} />
+            <CompanyList data={FAKEDATA} setData={vi.fn()} />
         </MemoryRouter>
     );
 

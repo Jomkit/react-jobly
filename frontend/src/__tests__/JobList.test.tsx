@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 it('should render without crashing', () => { 
     render(
         <MemoryRouter>
-            <JobList />
+            <JobList data={TESTJOBS} setData={vi.fn()} />
         </MemoryRouter>
     );
 })
@@ -14,7 +14,7 @@ it('should render without crashing', () => {
 it('should render a list of jobs with title, salary, equity, and company', () => { 
     const {} = render(
         <MemoryRouter>
-            <JobList jobs={TESTJOBS} />
+            <JobList data={TESTJOBS} setData={vi.fn()} />
         </MemoryRouter>
     )
 })
