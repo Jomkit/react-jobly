@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import JoblyApi from '../api.ts';
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
-import { companyFormInterface } from '../types.ts';
-const SearchForm = ({ setData }: { setData: Function }) => {
-    const initialState: companyFormInterface = {
-        name: "", 
-        minEmployees: 0,
-        maxEmployees: 10000
+import { jobsFormInterface } from '../types.ts';
+
+const JobSearchForm = ({ setData }: { setData: Function }) => {
+    const initialState: jobsFormInterface = {
+        title: "",
+        minSalary: 0,
+        hasEquity: false
     }
     const [ formData, setFormData ] = useState(initialState);
 
     // Need to apply filter to form data
-    async function getFiltered(filterParams: companyFormInterface) {
+    async function getFiltered(filterParams: jobsFormInterface) {
         try{
-            const res = await JoblyApi.getCompanies(filterParams);
+            const res = await JoblyApi.getJobs(filterParams);
             setData(res);
         } catch(e: any){
             console.log("Oops, something went wrong...");
@@ -23,7 +24,7 @@ const SearchForm = ({ setData }: { setData: Function }) => {
     
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>){
         const { name, value } = evt.target;
-        setFormData((data: companyFormInterface) => ({
+        setFormData((data: jobsFormInterface) => ({
             ...data,
             [name]: value,
         }));
@@ -32,6 +33,7 @@ const SearchForm = ({ setData }: { setData: Function }) => {
     function handleSubmit(evt: React.FormEvent){
         evt.preventDefault();
         console.log("Submitting...");
+        console.log(formData);
         getFiltered(formData);
     }
 
@@ -42,16 +44,16 @@ const SearchForm = ({ setData }: { setData: Function }) => {
                 <FormGroup>
                     <Label
                         className='visually-hidden'
-                        for='name'
+                        for='title'
                     >
-                        Name
+                        Job Title
                     </Label>
                     <Input
-                    id='name'
-                    name='name'
-                    placeholder='search companies'
+                    id='title'
+                    name='title'
+                    placeholder='search job titles'
                     type="text"
-                    value={formData.name}
+                    value={formData.title}
                     onChange={handleChange}
                     />            
                 </FormGroup>
@@ -59,31 +61,28 @@ const SearchForm = ({ setData }: { setData: Function }) => {
             <Col lg={2}>
                 <FormGroup floating>
                     <Input 
-                        id="minEmployees"
-                        name="minEmployees"
+                        id="minSalary"
+                        name="minSalary"
                         placeholder='0'
                         min={0}
                         type="number"
                         bsSize='sm'
-                        value={formData.minEmployees}
+                        value={formData.minSalary}
                         onChange={handleChange}
                     />
-                    <Label for="minEmployees">Min Employees</Label>
+                    <Label for="minSalary">Minimum Salary</Label>
                 </FormGroup>
             </Col>
             <Col lg={2}>
-                <FormGroup floating>
+                <FormGroup check inline>
                     <Input 
-                        id="maxEmployees"
-                        name="maxEmployees"
-                        placeholder='0'
-                        min={0}
-                        type="number"
-                        bsSize='sm'
-                        value={formData.maxEmployees}
+                        id="hasEquity"
+                        name="hasEquity"
+                        type="checkbox"
+                        value="true"
                         onChange={handleChange}
                     />
-                    <Label for="maxEmployees">Max Employees</Label>
+                    <Label check for="hasEquity">Has Equity?</Label>
                 </FormGroup>
             </Col>
 
@@ -95,4 +94,4 @@ const SearchForm = ({ setData }: { setData: Function }) => {
   )
 }
 
-export default SearchForm
+export default JobSearchForm

@@ -1,5 +1,3 @@
-import React from "react";
-
 interface companyInterface {
     details: {
         name: string;

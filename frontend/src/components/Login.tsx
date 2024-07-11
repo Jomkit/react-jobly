@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import SignUpForm from './SignUpForm';
 
 const Login = () => {
     const { loginParam } = useParams();
@@ -9,7 +10,7 @@ const Login = () => {
         )
     } else if(loginParam === 'signup'){
         return (
-            <div>Sign Up</div>
+            <SignUpForm />
         )
     }
 }

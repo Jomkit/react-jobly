@@ -7,7 +7,7 @@ const Companies = () => {
   const [companiesData, setCompaniesData] = useState<companiesInterface[] | null>(null);
   return (
     <>
-        <SearchForm setCompaniesData={setCompaniesData} />
+        <SearchForm setData={setCompaniesData} />
         <CompanyList data={companiesData} setData={setCompaniesData} />
     </>
   )

@@ -20,4 +20,16 @@ interface propsListInterface {
   setData: Function;
 }
 
-export type { companiesInterface, jobsInterface, propsListInterface }
+interface companyFormInterface {
+  name: string;
+  minEmployees: number;
+  maxEmployees: number;
+}
+
+interface jobsFormInterface {
+  title: string;
+  minSalary: number;
+  hasEquity: boolean;
+}
+
+export type { companiesInterface, jobsInterface, propsListInterface, companyFormInterface, jobsFormInterface }
