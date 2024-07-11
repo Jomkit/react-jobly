@@ -12,7 +12,7 @@ const RoutesList = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/companies" element={<Companies />} />
 
-        <Route path="/companies/:company" element={<Company details={{ name: "company1", description: "This is company 1"}} />} />
+        <Route path="/companies/:company" element={<Company />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/:loginParam" element={<Login />} />
         <Route path="/profile" element={<Profile />} />

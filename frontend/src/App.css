@@ -32,6 +32,10 @@
   }
 }
 
+.card-list {
+  list-style-type: none;
+  padding: 0;
+}
 .card {
   padding: 2em;
 }

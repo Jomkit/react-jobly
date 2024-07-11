@@ -7,7 +7,7 @@ const CompanyList = ({ data, setData }: propsListInterface) => {
 
   // Run on initial page load
   useEffect(() => {
-    const getCompanies = async () => {
+  const getCompanies = async () => {
       const res = await JoblyApi.getCompanies();
       console.log(res);
       
@@ -24,9 +24,9 @@ const CompanyList = ({ data, setData }: propsListInterface) => {
   }
   
   return (
-    <ul style={{listStyleType:"none", paddingLeft:"0"}}>
+    <ul className='card-list'>
       {(data as companiesInterface[])?.map( cmp => (
-        <CompanyCard key={cmp.handle} title={cmp.name} description={cmp.description} logoUrl={cmp.logoUrl} />
+        <CompanyCard key={cmp.handle} handle={cmp.handle} title={cmp.name} description={cmp.description} logoUrl={cmp.logoUrl} />
       ))}
     </ul>
   )
