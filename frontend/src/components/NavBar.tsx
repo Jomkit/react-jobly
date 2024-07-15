@@ -1,10 +1,13 @@
 import { NavLink } from 'react-router-dom'
 import "./NavBar.css";
-import { Nav, NavItem, Navbar, NavbarText } from 'reactstrap';
+import { Nav, NavItem, Navbar } from 'reactstrap';
+import { useContext } from 'react';
+import { userContext } from './contexts/userContext';
 
 const NavBar = () => {
+  const currUser = useContext(userContext);
   return (
-    <Navbar color='secondary' dark>
+    <Navbar color='info' dark>
           <Nav className='d-flex align-items-center'>
             <NavItem>
               <NavLink className="navbar-brand" to="/">React-Jobly</NavLink>
@@ -17,9 +20,14 @@ const NavBar = () => {
             </NavItem>
           </Nav>
             <NavItem style={{ listStyle: "none" }}>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
+              { currUser ? 
+                  <NavLink to="/profile">Profile</NavLink>
+                :
+                  <>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/signup">Sign Up</NavLink>
+                  </>
+              }
             </NavItem>
       </Navbar>
   )

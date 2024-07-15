@@ -1,4 +1,5 @@
 import axios, { AxiosError } from "axios";
+import { userInterface } from "./types";
 
 const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -86,13 +87,28 @@ export default class JoblyApi {
   }
 
   /*************** USER ***************/
-  static async register(username: string, password: string, firstName: string, lastName: string, email: string) {
-    let res = await this.request("users", { username, password, firstName, lastName, email }, "post");
+  // for user to register themselves
+  static async register(newUser: userInterface) {
+    let res = await this.request("auth/register", { ...newUser }, "post");
+    this.token = res.token;
     return res;
+  }
+  
+  // for user to login
+  static async login(username: string, password: string) {
+    let res = await this.request("auth/token", { username, password }, "post");
+    console.log("inside api.ts,", res);
+    this.token = res.token;
+    return res;
+  }
+  
+  static async getUser(username: string) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
   }
 }
 
 // for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+// JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+//     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+//     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";

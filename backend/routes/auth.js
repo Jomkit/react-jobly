@@ -34,7 +34,7 @@ router.post("/token", async function (req, res, next) {
   } catch (err) {
     return next(err);
   }
-});
+}); 
 
 
 /** POST /auth/register:   { user } => { token }

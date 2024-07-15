@@ -15,6 +15,15 @@ interface jobsInterface {
   companyName: string;
   companyHandle?: string;
 }
+
+interface userInterface {
+  username: string;
+  password: string; 
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
 interface propsListInterface {
   data: companiesInterface[] | jobsInterface[] | null;
   setData: Function;
@@ -32,4 +41,17 @@ interface jobsFormInterface {
   hasEquity: boolean;
 }
 
-export type { companiesInterface, jobsInterface, propsListInterface, companyFormInterface, jobsFormInterface }
+interface authInterface {
+  signup: Function;
+  login: Function;
+  logout: Function;
+}
+
+interface textInputInterface {
+  label: string;
+  id?: string;
+  name?: string;
+  type: string;
+}
+
+export type { companiesInterface, jobsInterface, userInterface, propsListInterface, companyFormInterface, jobsFormInterface, authInterface, textInputInterface }
