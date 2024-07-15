@@ -1,15 +1,20 @@
 import { useContext } from "react"
 import { userContext } from "./contexts/userContext"
+import { Navigate } from "react-router-dom";
+import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const currUser = useContext(userContext);
+  if(!currUser) {
+    console.log(currUser);
+    return (<Navigate to="/unauthorized-access" />);
+  }
+
   if(currUser){
     return (
       <div>
           <h1>{currUser.username}'s Profile</h1>
-          <p>First Name: {currUser.firstName}</p>
-          <p>Last Name: {currUser.lastName}</p>
-          <p>Email: {currUser.email}</p>
+          <ProfileUpdateForm />
       </div>
     )
   }

@@ -1,10 +1,18 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import JobList from "./JobList"
 import { jobsInterface } from "../types";
-import SearchForm from "./SearchForm";
 import JobSearchForm from "./JobSearchForm";
+import { userContext } from "./contexts/userContext";
+import { Navigate } from "react-router-dom";
 
 const Jobs = () => {
+    
+  const currUser = useContext(userContext);
+  if(!currUser) {
+    console.log(currUser);
+    return (<Navigate to="/unauthorized-access" />);
+  }
+
   const [ jobs, setJobs ] = useState<jobsInterface[] | null>(null);
   
   return (

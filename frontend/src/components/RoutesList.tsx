@@ -5,6 +5,7 @@ import Jobs from './Jobs';
 import Company from './Company';
 import Login from './Login';
 import Profile from './Profile';
+import UnauthorizedAccess from './UnauthorizedAccess';
 
 const RoutesList = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesList = () => {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/:loginParam" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path='/unauthorized-access' element={<UnauthorizedAccess />} />
 
     </Routes>
   )
