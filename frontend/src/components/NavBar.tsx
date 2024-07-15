@@ -3,6 +3,7 @@ import "./NavBar.css";
 import { Nav, NavItem, Navbar } from 'reactstrap';
 import { useContext } from 'react';
 import { userContext } from './contexts/userContext';
+import LogoutForm from './LogoutForm';
 
 const NavBar = () => {
   const currUser = useContext(userContext);
@@ -21,7 +22,10 @@ const NavBar = () => {
           </Nav>
             <NavItem style={{ listStyle: "none" }}>
               { currUser ? 
-                  <NavLink to="/profile">Profile</NavLink>
+                  <div className='d-flex align-items-center'>
+                    <NavLink to="/profile">Profile</NavLink>
+                    <LogoutForm />
+                  </div>
                 :
                   <>
                     <NavLink to="/login">Login</NavLink>

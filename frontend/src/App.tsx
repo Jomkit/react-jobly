@@ -1,4 +1,4 @@
- import { useContext, useEffect, useState } from 'react';
+ import { useEffect, useState } from 'react';
 import JoblyApi from './api.ts';
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import './App.css'
@@ -7,21 +7,21 @@ import RoutesList from './components/RoutesList'
 import { userInterface } from './types';
 import { authContext } from './components/contexts/authContext';
 import { userContext } from './components/contexts/userContext';
-
-type usernameType = string;
+import { useNavigate } from 'react-router-dom';
+import useLocalStorage from './components/hooks/useLocalStorage.tsx';
 
 function App() {
-  const [ userToken, setUserToken ] = useState<string | null>(null);
+  const [token, setToken] = useLocalStorage('currUserToken');
   const [ currUser, setCurrUser ] = useState<userInterface | null>(null);
+  const navigate = useNavigate();
 
+  // get current user info when userToken changes (going from null to
+  // actual token when user signs up or logs in)
   useEffect(() => {
     const getCurrUser = async (userToken: string) => {
       try{
-        console.log("decoding currUser");
-        const decoded = jwtDecode<JwtPayload & {username: string}>(userToken);
-        console.log(decoded);
-        const user = await JoblyApi.getUser(decoded.username);
-        console.log(user);
+        const { username } = jwtDecode<JwtPayload & {username: string}>(userToken);
+        const user = await JoblyApi.getUser(username);
         setCurrUser(user);
         
       }catch(e: any){
@@ -29,14 +29,20 @@ function App() {
         console.error(e);
       }
     }
-
-    getCurrUser(userToken as string);
+    JoblyApi.token = token;
+    const currUserToken:string = token as string;
+    console.log("currUserToken", currUserToken);
+    if(currUserToken) {
+      getCurrUser(currUserToken);
+    } else {
+      setCurrUser(null);
+    }
     
-  },[userToken]);
-  
+  },[token]);
+
   const signup = async (values: userInterface) => {
     const { token }: { token: string } = await JoblyApi.register(values);
-    setUserToken(token);
+    setToken(token);
   } 
 
  /**
@@ -48,12 +54,16 @@ function App() {
  */
   const login = async ({username, password}: {username: string, password: string}) => {
     const { token }: { token: string } = await JoblyApi.login(username, password);
-    setUserToken(token);
+    setToken(token);
     console.log(token);
     console.log('logging in...');
   }
   const logout = () => {
+    setToken(null);
+    setCurrUser(null);
+    alert("Successfully logged out...");
     console.log('logging out...');
+    navigate('/');
   }
   
   return (

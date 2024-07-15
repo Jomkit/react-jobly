@@ -13,7 +13,7 @@ const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 export default class JoblyApi {
   // the token for interactive with the API will be stored here.
-  static token: string;
+  static token: string | null;
 
   static async request(endpoint: string, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);

@@ -4,9 +4,11 @@ import * as Yup from "yup";
 import { authInterface, userInterface } from "../types";
 import TextInput from "./formikComponents/TextInput.tsx";
 import { authContext } from "./contexts/authContext.tsx";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm: React.FC<{}> = () => {
     const { signup } = useContext<authInterface>(authContext);
+    const navigate = useNavigate();
     
     const SignupSchema = Yup.object().shape({
         username: Yup.string()
@@ -45,6 +47,7 @@ const initialValues: userInterface = {
             onSubmit={((values, { setSubmitting }) => {
                 signup(values);
                 setSubmitting(false);
+                navigate('/');
             })}
             validationSchema={SignupSchema}
         >

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import * as Yup from 'yup';
+import React, { useContext } from 'react';
 import { authInterface, userInterface } from '../types';
 import { Form, Formik } from 'formik';
 import TextInput from './formikComponents/TextInput';
