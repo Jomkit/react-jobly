@@ -7,7 +7,7 @@ const Homepage = () => {
     <div>
         <h1>Jobly</h1>
         { currUser ?
-        <p>Welcome back {currUser.username}! Here are all the jobes in one, convenient place!</p>
+        <p>Welcome back {currUser.username}! Here are all the jobs in one, convenient place!</p>
         :
         <p>Join now for easy access to all the jobs in one, convenient place</p>
         }

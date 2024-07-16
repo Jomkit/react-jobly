@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom"
-import SignUpForm from "../components/SignUpForm"
+import SignUpForm from "../components/UserForm"
 import React from "react"
 
 function setup(tsx: React.ReactNode) {

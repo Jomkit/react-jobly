@@ -65,11 +65,18 @@ function App() {
     console.log('logging out...');
     navigate('/');
   }
+
+  const updateUser = async (user: userInterface) => {
+    console.log("Updating...");
+    const updatedUser = await JoblyApi.updateUser(user);
+    setCurrUser(updatedUser);
+    alert(`${updatedUser.username}, your profile has been updated`);
+}
   
   return (
     <>
       <userContext.Provider value={ currUser }>
-        <authContext.Provider value={{ signup, login, logout }}>
+        <authContext.Provider value={{ signup, login, logout, updateUser }}>
           <NavBar />
           <RoutesList />
         </authContext.Provider>

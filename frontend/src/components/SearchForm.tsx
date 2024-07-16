@@ -31,7 +31,7 @@ const SearchForm = ({ setData }: { setData: Function }) => {
 
     function handleSubmit(evt: React.FormEvent){
         evt.preventDefault();
-        console.log("Submitting...");
+        
         getFiltered(formData);
     }
 

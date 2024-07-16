@@ -45,13 +45,16 @@ interface authInterface {
   signup: Function;
   login: Function;
   logout: Function;
+  updateUser?: Function;
 }
 
 interface textInputInterface {
   label: string;
   id?: string;
   name?: string;
+  initialValue?: string;
   type: string;
+  readOnly?: boolean;
 }
 
 export type { companiesInterface, jobsInterface, userInterface, propsListInterface, companyFormInterface, jobsFormInterface, authInterface, textInputInterface }
