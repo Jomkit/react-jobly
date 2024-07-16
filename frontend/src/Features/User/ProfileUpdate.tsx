@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import UserForm from './UserForm.tsx'
-import { userContext } from './contexts/userContext.tsx';
-import { authContext } from './contexts/authContext.tsx';
+import UserForm from '../Auth/UserForm.tsx'
+import { userContext } from '../../components/contexts/userContext.tsx';
+import { sharedMethodsContext } from '../../components/contexts/sharedMethodsContext.tsx';
 
 const ProfileUpdate = () => {
     const currUser = useContext(userContext);
-    const { updateUser } = useContext(authContext);
+    const { updateUser } = useContext(sharedMethodsContext);
     
   return (
     <div>

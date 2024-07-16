@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import Homepage from './Homepage';
-import Companies from './Companies';
-import Jobs from './Jobs';
-import Company from './Company';
-import Login from './Login';
-import Profile from './Profile';
-import UnauthorizedAccess from './UnauthorizedAccess';
+import Companies from '../Features/Company/Companies';
+import Jobs from '../Features/Job/Jobs';
+import Company from '../Features/Company/Company';
+import Login from '../Features/Auth/Login';
+import Profile from '../Features/User/Profile';
+import UnauthorizedAccess from '../Features/ErrorPages/UnauthorizedAccess';
+import IncorrectCredentials from '../Features/ErrorPages/IncorrectCredentials';
 
 const RoutesList = () => {
   return (
@@ -18,6 +19,7 @@ const RoutesList = () => {
         <Route path="/:loginParam" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path='/unauthorized-access' element={<UnauthorizedAccess />} />
+        <Route path='/incorrect-credentials' element={<IncorrectCredentials />} />
 
     </Routes>
   )

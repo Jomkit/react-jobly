@@ -1,9 +1,9 @@
 import { FormEvent, useContext } from 'react'
-import { authInterface } from '../types';
-import { authContext } from './contexts/authContext';
+import { sharedMethodsInterface } from '/home/jomkit/react-jobly/frontend/src/types.ts';
+import { sharedMethodsContext } from '../../components/contexts/sharedMethodsContext';
 
 const LogoutForm = () => {
-    const { logout } = useContext<authInterface>(authContext);
+    const { logout } = useContext<sharedMethodsInterface>(sharedMethodsContext);
 
     const handleSubmit = (evt: FormEvent) => {
         evt.preventDefault();

@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import CompanyList from './CompanyList'
-import SearchForm from './SearchForm'
-import { companiesInterface } from '../types';
-import { userContext } from './contexts/userContext';
+import SearchForm from '../../components/SearchForm'
+import { companiesInterface } from '../../types';
+import { userContext } from '../../components/contexts/userContext';
 import { Navigate } from 'react-router-dom';
 const Companies = () => {
     

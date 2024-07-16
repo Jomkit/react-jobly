@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom'
 import "./NavBar.css";
 import { Nav, NavItem, Navbar } from 'reactstrap';
 import { useContext } from 'react';
-import { userContext } from './contexts/userContext';
-import LogoutForm from './LogoutForm';
+import { userContext } from '../../components/contexts/userContext';
+import LogoutForm from '../Auth/LogoutForm';
 
 const NavBar = () => {
   const currUser = useContext(userContext);
@@ -23,7 +23,7 @@ const NavBar = () => {
             <NavItem style={{ listStyle: "none" }}>
               { currUser ? 
                   <div className='d-flex align-items-center'>
-                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/profile">{currUser.username}</NavLink>
                     <LogoutForm />
                   </div>
                 :

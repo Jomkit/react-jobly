@@ -2,10 +2,10 @@
 import JoblyApi from './api.ts';
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import './App.css'
-import NavBar from './components/NavBar'
+import NavBar from './Features/Nav/NavBar.tsx'
 import RoutesList from './components/RoutesList'
 import { userInterface } from './types';
-import { authContext } from './components/contexts/authContext';
+import { sharedMethodsContext } from './components/contexts/sharedMethodsContext.tsx';
 import { userContext } from './components/contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 import useLocalStorage from './components/hooks/useLocalStorage.tsx';
@@ -29,6 +29,7 @@ function App() {
         console.error(e);
       }
     }
+
     JoblyApi.token = token;
     const currUserToken:string = token as string;
     console.log("currUserToken", currUserToken);
@@ -52,34 +53,44 @@ function App() {
  * Params: username, password
  * @return {Promise<void>} A promise that resolves when the login process is complete.
  */
-  const login = async ({username, password}: {username: string, password: string}) => {
-    const { token }: { token: string } = await JoblyApi.login(username, password);
-    setToken(token);
-    console.log(token);
-    console.log('logging in...');
+const login = async ({username, password}: {username: string, password: string}) => {
+    try{
+      let { token }: { token: string } = await JoblyApi.login(username, password);
+      setToken(token);
+    } catch(e: any){
+      console.error(e);
+      navigate("/incorrect-credentials");
+    }
   }
   const logout = () => {
     setToken(null);
     setCurrUser(null);
     alert("Successfully logged out...");
-    console.log('logging out...');
     navigate('/');
   }
 
   const updateUser = async (user: userInterface) => {
-    console.log("Updating...");
     const updatedUser = await JoblyApi.updateUser(user);
     setCurrUser(updatedUser);
     alert(`${updatedUser.username}, your profile has been updated`);
-}
+  }
+
+  const applyToJob = async (jobId: number) => {
+    console.log("jobId", jobId);
+    const application = await JoblyApi.applyToJob(currUser!.username, jobId);
+    console.log(application);
+    if(currUser?.applications){
+      currUser.applications.push(+jobId);
+    }
+  }
   
   return (
     <>
       <userContext.Provider value={ currUser }>
-        <authContext.Provider value={{ signup, login, logout, updateUser }}>
+        <sharedMethodsContext.Provider value={{ signup, login, logout, updateUser, applyToJob }}>
           <NavBar />
           <RoutesList />
-        </authContext.Provider>
+        </sharedMethodsContext.Provider>
       </userContext.Provider>
     </>
   )

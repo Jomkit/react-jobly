@@ -1,5 +1,5 @@
 import { render, waitFor } from "@testing-library/react";
-import CompanyList from "../components/CompanyList";
+import CompanyList from "../Features/Company/CompanyList.tsx";
 import { MemoryRouter } from "react-router-dom";
 import JoblyApi from "../api.ts";
 import { FAKEDATA } from "./_testCommon.ts";

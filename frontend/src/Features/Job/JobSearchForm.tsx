@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import JoblyApi from '../api.ts';
+import JoblyApi from '../../api.ts';
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
-import { jobsFormInterface } from '../types.ts';
+import { jobsFormInterface } from '../../types.ts';
 
 const JobSearchForm = ({ setData }: { setData: Function }) => {
     const initialState: jobsFormInterface = {

@@ -1,14 +1,14 @@
 import { useContext } from "react"
-import { userContext } from "./contexts/userContext"
+import { userContext } from "../../components/contexts/userContext"
 import { Navigate } from "react-router-dom";
 import ProfileUpdate from "./ProfileUpdate";
 
 const Profile = () => {
   const currUser = useContext(userContext);
   if(!currUser) {
-    console.log(currUser);
     return (<Navigate to="/unauthorized-access" />);
   }
+  console.log(currUser);
 
   if(currUser){
     return (

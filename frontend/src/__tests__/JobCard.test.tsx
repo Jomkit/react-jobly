@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react"
 import { TESTJOBS } from "./_testCommon";
-import JobCard from "../components/JobCard";
+import JobCard from "../Features/Job/JobCard";
 import { MemoryRouter } from "react-router-dom";
 
 const { id, title, salary, equity, companyName } = TESTJOBS[0];

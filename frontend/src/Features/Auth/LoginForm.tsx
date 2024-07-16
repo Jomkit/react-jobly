@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { authInterface, userInterface } from '../types';
+import { sharedMethodsInterface, userInterface } from '../../types';
 import { Form, Formik } from 'formik';
-import TextInput from './formikComponents/TextInput';
-import { authContext } from './contexts/authContext';
+import TextInput from '../../components/formikComponents/TextInput';
+import { sharedMethodsContext } from '../../components/contexts/sharedMethodsContext';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC<{}> = () => {
-    const { login } = useContext<authInterface>(authContext);
+    const { login } = useContext<sharedMethodsInterface>(sharedMethodsContext);
     const navigate = useNavigate();
     
     const initialValues: Partial<userInterface> = {

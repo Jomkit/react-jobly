@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import JoblyApi from "../api.ts";
-import { jobsInterface } from "../types";
-import JobCard from "./JobCard.tsx";
-import { userContext } from "./contexts/userContext.tsx";
+import JoblyApi from "../../api.ts";
+import { jobsInterface } from "../../types.ts";
+import JobCard from "../Job/JobCard.tsx";
+import { userContext } from "../../components/contexts/userContext.tsx";
 
 interface companyInterface {
   name: string;
@@ -26,9 +26,7 @@ const Company = () => {
   // get company details and jobs after load
   useEffect(() => {
     const getCompany = async (handle: string) => {
-      const res = await JoblyApi.getCompany(handle as string);
-      console.log(res);
-    
+      const res = await JoblyApi.getCompany(handle as string);    
       setCmp(res);
     }
     getCompany(handle as string);
@@ -45,7 +43,7 @@ const Company = () => {
         <p>Employees: { cmp.numEmployees }</p>
         <ul className="card-list">
           {cmp.jobs?.map( job => (
-            <JobCard {...job} />
+            <JobCard key={job.id} {...job} />
           ))}
         </ul>
     </div>

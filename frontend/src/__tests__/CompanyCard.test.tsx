@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import CompanyCard from "../components/CompanyCard";
+import CompanyCard from "../Features/Company/CompanyCard";
 import { MemoryRouter } from "react-router-dom";
 import { FAKEDATA } from "./_testCommon";
 

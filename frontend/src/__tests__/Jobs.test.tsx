@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react"
-import Jobs from "../components/Jobs";
+import Jobs from "../Features/Job/Jobs";
 
 describe("Jobs page", () => {
     it('should render without crashing', () => { 

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import JobList from "../components/JobList";
+import JobList from "../Features/Job/JobList";
 import { TESTJOBS } from "./_testCommon";
 import { MemoryRouter } from "react-router-dom";
 

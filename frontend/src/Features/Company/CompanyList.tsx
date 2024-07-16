@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import JoblyApi from '../api.ts';
+import JoblyApi from '../../api.ts';
 import CompanyCard from './CompanyCard.tsx';
-import { companiesInterface, propsListInterface } from '../types.ts';
+import { companiesInterface, propsListInterface } from '../../types.ts';
 
 const CompanyList = ({ data, setData }: propsListInterface) => {
 
@@ -9,7 +9,6 @@ const CompanyList = ({ data, setData }: propsListInterface) => {
   useEffect(() => {
   const getCompanies = async () => {
       const res = await JoblyApi.getCompanies();
-      console.log(res);
       
       setData(res);
     }

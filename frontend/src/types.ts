@@ -22,6 +22,7 @@ interface userInterface {
   firstName: string;
   lastName: string;
   email: string;
+  applications?: number[];
 }
 
 interface propsListInterface {
@@ -41,11 +42,12 @@ interface jobsFormInterface {
   hasEquity: boolean;
 }
 
-interface authInterface {
+interface sharedMethodsInterface {
   signup: Function;
   login: Function;
   logout: Function;
   updateUser?: Function;
+  applyToJob?: Function;
 }
 
 interface textInputInterface {
@@ -57,4 +59,4 @@ interface textInputInterface {
   readOnly?: boolean;
 }
 
-export type { companiesInterface, jobsInterface, userInterface, propsListInterface, companyFormInterface, jobsFormInterface, authInterface, textInputInterface }
+export type { companiesInterface, jobsInterface, userInterface, propsListInterface, companyFormInterface, jobsFormInterface, sharedMethodsInterface, textInputInterface }

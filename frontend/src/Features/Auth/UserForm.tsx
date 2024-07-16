@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { userInterface } from "../types.ts";
-import TextInput from "./formikComponents/TextInput.tsx";
+import { userInterface } from "../../types.ts";
+import TextInput from "../../components/formikComponents/TextInput.tsx";
 import { useNavigate } from "react-router-dom";
 
 const initialState: userInterface = {
