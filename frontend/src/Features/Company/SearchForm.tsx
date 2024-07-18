@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import JoblyApi from '../api.ts';
+import JoblyApi from '../../api.ts';
 import { Col, FormGroup, Input, Label, Row } from 'reactstrap'
-import { companyFormInterface } from '../types.ts';
+import { companyFormInterface } from '../../types.ts';
 const SearchForm = ({ setData }: { setData: Function }) => {
     const initialState: companyFormInterface = {
         name: "", 
@@ -36,7 +36,7 @@ const SearchForm = ({ setData }: { setData: Function }) => {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='bg-white mx-5 border border-3 border-black rounded p-1' onSubmit={handleSubmit}>
         <Row className='m-lg-4 align-items-center'>
             <Col lg={6}>
                 <FormGroup>

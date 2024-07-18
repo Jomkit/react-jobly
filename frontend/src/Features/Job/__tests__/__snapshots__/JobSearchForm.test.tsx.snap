@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Job Search Form > should match snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="bg-white mx-5 p-1 border border-3 border-black rounded"
+  >
+    <div
+      class="m-lg-4 align-items-center row"
+    >
+      <div
+        class="col-lg-6"
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="visually-hidden form-label"
+            for="title"
+          >
+            Job Title
+          </label>
+          <input
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="search job titles"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-lg-2"
+      >
+        <div
+          class="mb-3 form-floating"
+        >
+          <input
+            class="form-control-sm form-control"
+            id="minSalary"
+            min="0"
+            name="minSalary"
+            placeholder="0"
+            type="number"
+            value="0"
+          />
+          <label
+            class="form-label"
+            for="minSalary"
+          >
+            Minimum Salary
+          </label>
+        </div>
+      </div>
+      <div
+        class="col-lg-2"
+      >
+        <div
+          class="form-check form-check-inline"
+        >
+          <input
+            class="form-check-input"
+            id="hasEquity"
+            name="hasEquity"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            class="form-check-label"
+            for="hasEquity"
+          >
+            Has Equity?
+          </label>
+        </div>
+      </div>
+      <div
+        class="col-2 col"
+      >
+        <button
+          class="btn bg-primary text-light btn-block"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

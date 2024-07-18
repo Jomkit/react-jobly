@@ -9,7 +9,6 @@ const Jobs = () => {
     
   const currUser = useContext(userContext);
   if(!currUser) {
-    console.log(currUser);
     return (<Navigate to="/unauthorized-access" />);
   }
 
@@ -17,7 +16,7 @@ const Jobs = () => {
   
   return (
     <>
-      <h1>Jobs</h1>
+      <h1 style={{color: "white"}}>Jobs</h1>
       <JobSearchForm setData={setJobs} />
       <JobList data={jobs} setData={setJobs} />
     </>

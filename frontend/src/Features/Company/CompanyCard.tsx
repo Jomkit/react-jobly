@@ -16,7 +16,7 @@ const CompanyCard = ({handle, title, description, logoUrl}: companyPropsInterfac
             className='text-reset 
                 text-decoration-none'
         >
-            <Card className='CompanyCard-card p-3'>
+            <Card className='CompanyCard-card p-3 m-5 border border-3 border-black'>
                 <CardTitle tag="h3">
                     {title}
                 </CardTitle>

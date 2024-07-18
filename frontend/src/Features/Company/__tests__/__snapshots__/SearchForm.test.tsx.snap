@@ -2,7 +2,9 @@
 
 exports[`should match snapshot 1`] = `
 <DocumentFragment>
-  <form>
+  <form
+    class="bg-white mx-5 border border-3 border-black rounded p-1"
+  >
     <div
       class="m-lg-4 align-items-center row"
     >

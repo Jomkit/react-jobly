@@ -38,9 +38,11 @@ const Company = () => {
     
   return (
     <div>
+      <div className="text-white m-2">
         <h1>{ cmp.name }</h1>
         <p>{ cmp.description }</p>
         <p>Employees: { cmp.numEmployees }</p>
+      </div>
         <ul className="card-list">
           {cmp.jobs?.map( job => (
             <JobCard key={job.id} {...job} />

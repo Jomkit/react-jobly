@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="text-white"
+    >
+      <h1
+        class="display-1"
+      >
+        testuser
+      </h1>
+      <p>
+        Number of applications: 0
+      </p>
+    </div>
+    <div>
+      <h1
+        class="mt-4 text-white"
+      >
+        Edit User Profile
+      </h1>
+      <form
+        action="#"
+        class="d-flex flex-column col col-6 m-auto p-5 pt-3 border border-3 rounded border-dark bg-white"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          class="text-input"
+          id="username"
+          name="username"
+          type="text"
+          value="testuser"
+        />
+        <label
+          for="firstName"
+        >
+          First Name
+        </label>
+        <input
+          class="text-input"
+          id="firstName"
+          name="firstName"
+          type="text"
+          value="first"
+        />
+        <label
+          for="lastName"
+        >
+          Last Name
+        </label>
+        <input
+          class="text-input"
+          id="lastName"
+          name="lastName"
+          type="text"
+          value="last"
+        />
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          class="text-input"
+          id="email"
+          name="email"
+          type="email"
+          value="test@gmail.com"
+        />
+        <button
+          class="btn btn-primary mt-2"
+          type="submit"
+        >
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

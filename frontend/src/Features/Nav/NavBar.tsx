@@ -8,17 +8,23 @@ import LogoutForm from '../Auth/LogoutForm';
 const NavBar = () => {
   const currUser = useContext(userContext);
   return (
-    <Navbar color='info' dark>
+    <Navbar color='secondary' dark>
           <Nav className='d-flex align-items-center'>
             <NavItem>
               <NavLink className="navbar-brand" to="/">React-Jobly</NavLink>
             </NavItem>
+            { currUser ?
+            <>
             <NavItem>
               <NavLink to="/companies">Companies</NavLink>
             </NavItem>
             <NavItem>
                 <NavLink to="/jobs">Jobs</NavLink>
             </NavItem>
+            </>
+            :
+            null
+            }
           </Nav>
             <NavItem style={{ listStyle: "none" }}>
               { currUser ? 

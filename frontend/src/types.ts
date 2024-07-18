@@ -8,7 +8,7 @@ interface companiesInterface {
 }
 
 interface jobsInterface {
-  id?: number;
+  id: number;
   title: string;
   salary: number;
   equity: number;
@@ -22,7 +22,7 @@ interface userInterface {
   firstName: string;
   lastName: string;
   email: string;
-  applications?: number[];
+  applications: number[];
 }
 
 interface propsListInterface {

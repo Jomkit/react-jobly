@@ -14,8 +14,15 @@ const JobList = ({data, setData}: propsListInterface) => {
     getJobs();
   }, [])
 
+    // Before loading company data, or no matching company
+    if(data === null) {
+      return (<p className='text-white'>Loading...</p>);
+    }else if(data.length === 0) {
+      return (<h3 className='text-white'>No matching jobs</h3>);
+    }
+
   return (
-    <ul className='card-list'>
+    <ul className='card-list list-unstyled'>
       {(data as jobsInterface[])?.map( job => (
         <JobCard key={ job.id } id={job.id} title={ job.title } salary={ job.salary } equity={ job.equity } companyName={ job.companyName }/>
       ))}

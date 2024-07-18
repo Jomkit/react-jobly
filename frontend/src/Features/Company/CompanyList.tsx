@@ -17,13 +17,13 @@ const CompanyList = ({ data, setData }: propsListInterface) => {
   
   // Before loading company data, or no matching company
   if(data === null) {
-    return (<p>Loading...</p>);
+    return (<p className='text-white'>Loading...</p>);
   }else if(data.length === 0) {
-    return (<h3>No matching companies</h3>);
+    return (<h3 className='text-white'>No matching companies</h3>);
   }
   
   return (
-    <ul className='card-list'>
+    <ul className='card-list list-unstyled'>
       {(data as companiesInterface[])?.map( cmp => (
         <CompanyCard key={cmp.handle} handle={cmp.handle} title={cmp.name} description={cmp.description} logoUrl={cmp.logoUrl} />
       ))}

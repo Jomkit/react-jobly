@@ -5,7 +5,7 @@ const TextInput = ({ label, ...props }: textInputInterface) => {
     const [field, meta] = useField(props as any);
     return (
         <>
-            <label htmlFor={props.id}>{label}</label>
+            <label htmlFor={props.id || props.name}>{label}</label>
             <input className="text-input" {...field} {...props} />
             {meta.touched && meta.error ? (
                 <div className="text-danger">{meta.error}</div>

@@ -32,7 +32,6 @@ function App() {
 
     JoblyApi.token = token;
     const currUserToken:string = token as string;
-    console.log("currUserToken", currUserToken);
     if(currUserToken) {
       getCurrUser(currUserToken);
     } else {
@@ -76,9 +75,7 @@ const login = async ({username, password}: {username: string, password: string})
   }
 
   const applyToJob = async (jobId: number) => {
-    console.log("jobId", jobId);
-    const application = await JoblyApi.applyToJob(currUser!.username, jobId);
-    console.log(application);
+    await JoblyApi.applyToJob(currUser!.username, jobId);
     if(currUser?.applications){
       currUser.applications.push(+jobId);
     }

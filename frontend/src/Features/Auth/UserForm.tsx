@@ -9,7 +9,8 @@ const initialState: userInterface = {
     password: "", 
     firstName: "", 
     lastName: "", 
-    email: ""
+    email: "",
+    applications: []
 }
 
 const UserForm = ({pageTitle, handleSubmit, defaultValues = initialState}: { pageTitle: string, handleSubmit: Function, defaultValues?: userInterface }) => {
@@ -57,33 +58,37 @@ const UserForm = ({pageTitle, handleSubmit, defaultValues = initialState}: { pag
     
   return (
     <>
-        <h1 className="mt-4">{pageTitle}</h1>
+        <h1 className="mt-4 text-white">{pageTitle}</h1>
         <Formik
             initialValues={defaultValues}
             onSubmit={((values, { setSubmitting }) => {
-                console.log("Click...");
                 handleSubmit(values);
                 setSubmitting(false);
                 navigate('/');
             })}
             validationSchema={SignupSchema}
         >
-            <Form className="d-flex flex-column col col-6 m-auto p-5 pt-3 border border-3 rounded border-secondary">
+            <Form className="d-flex flex-column col col-6 m-auto p-5 pt-3 border border-3 rounded border-dark bg-white">
                 {pageTitle.toLowerCase().includes("edit") ?
                 <>
-                    <TextInput label="Username" name='username' type="text" />
+                    <TextInput label="Username" name='username' id='username' type="text" />
                 </>
                 :
                 <>
-                    <TextInput label="Username" name='username' type="text" />
-                    <TextInput label="Password" name='password' type="password" />
+                    <TextInput label="Username" name='username' id='username' type="text" />
+                    <TextInput label="Password" name='password' id='password' type="password" />
                 </>
                 }
-                <TextInput label="First Name" name='firstName' type="text" />
-                <TextInput label="Last Name" name='lastName' type="text" />
-                <TextInput label="Email" name='email' type="email" />
+                <TextInput label="First Name" name='firstName' id='firstName' type="text" />
+                <TextInput label="Last Name" name='lastName' id="lastName" type="text" />
+                <TextInput label="Email" name='email' id="email" type="email" />
+                {
+                    pageTitle.toLowerCase().includes("edit") ?
+                    <button className="btn btn-primary mt-2" type="submit">Save Changes</button>
+                    :
+                    <button className="btn btn-primary mt-2" type="submit">Submit</button>
 
-                <button className="btn btn-primary mt-2" type="submit">Submit</button>
+                }
             </Form>
             
         </Formik>

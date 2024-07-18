@@ -1,5 +1,5 @@
 nav {
-    background-color: darkgoldenrod;
+    background-color: aliceblue;
     margin: auto;
 }
 
@@ -9,6 +9,6 @@ nav a {
     margin-right: 10px;
 }
 
-nav a:active {
-    color: grey;
+nav a.active {
+    color: rgb(105, 105, 236);
 }

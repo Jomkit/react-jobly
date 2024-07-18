@@ -55,6 +55,7 @@ export default class JoblyApi {
     }
 
     let res = await this.request(url);
+    console.log("RES HERE", res);
     return res.companies;
   }
   

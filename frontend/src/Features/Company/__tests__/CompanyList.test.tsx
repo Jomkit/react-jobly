@@ -1,10 +1,10 @@
 import { render, waitFor } from "@testing-library/react";
-import CompanyList from "../Features/Company/CompanyList.tsx";
+import CompanyList from "../CompanyList.tsx";
 import { MemoryRouter } from "react-router-dom";
-import JoblyApi from "../api.ts";
-import { FAKEDATA } from "./_testCommon.ts";
+import JoblyApi from "../../../api.ts";
+import { FAKEDATA } from "../../../__tests__/_testCommon.ts";
 
-vi.mock('../api.ts');
+vi.mock('../../../api.ts');
 JoblyApi.getCompanies = vi.fn().mockResolvedValue(FAKEDATA);
 
 it('should render without crashing', () => { 

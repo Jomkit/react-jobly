@@ -1,3 +1,26 @@
+import { userInterface } from "../types";
+
+const TESTTOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+"SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+"FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
+const TESTUSER: userInterface = {
+    username: "testuser",
+    password: "password",
+    firstName: "first",
+    lastName: "last",
+    email: "test@gmail.com",
+    applications: []
+}
+const TESTUSER2: userInterface = {
+    username: "testman",
+    password: "password123",
+    firstName: "first",
+    lastName: "last",
+    email: "test@gmail.com",
+    applications: []
+}
+
 const FAKEDATA = [
     {
         handle: "test1",
@@ -34,4 +57,4 @@ const TESTJOBS = [
     }
 ]
 
-export { FAKEDATA, TESTJOBS };
+export { FAKEDATA, TESTJOBS, TESTTOKEN, TESTUSER, TESTUSER2 };

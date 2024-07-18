@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <li>
+    <a
+      class="text-reset 
+                text-decoration-none"
+      href="/companies/test1"
+    >
+      <div
+        class="CompanyCard-card p-3 m-5 border border-3 border-black card"
+      >
+        <h3
+          class="card-title"
+        >
+          test company 1
+        </h3>
+        <div
+          class="card-body"
+        >
+          <p
+            class="card-text"
+          >
+            this is a test
+          </p>
+          <img
+            alt="company logo"
+            src="test logo"
+          />
+        </div>
+      </div>
+    </a>
+  </li>
+</DocumentFragment>
+`;

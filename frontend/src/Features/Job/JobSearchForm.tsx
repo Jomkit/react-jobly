@@ -15,6 +15,7 @@ const JobSearchForm = ({ setData }: { setData: Function }) => {
     async function getFiltered(filterParams: jobsFormInterface) {
         try{
             const res = await JoblyApi.getJobs(filterParams);
+            console.log("Filtering...");
             setData(res);
         } catch(e: any){
             console.log("Oops, something went wrong...");
@@ -32,13 +33,11 @@ const JobSearchForm = ({ setData }: { setData: Function }) => {
 
     function handleSubmit(evt: React.FormEvent){
         evt.preventDefault();
-        console.log("Submitting...");
-        console.log(formData);
         getFiltered(formData);
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='bg-white mx-5 p-1 border border-3 border-black rounded' onSubmit={handleSubmit}>
         <Row className='m-lg-4 align-items-center'>
             <Col lg={6}>
                 <FormGroup>

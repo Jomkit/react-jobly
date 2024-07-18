@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <li>
+    <div
+      class="p-1 pt-3 m-5 border border-3 border-black card"
+    >
+      <h5
+        class="text-start mx-3 card-title"
+      >
+        test job 1
+      </h5>
+      <div
+        class="card-body"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="text-start col-sm-8"
+          >
+            <p>
+              test company 1
+            </p>
+            <p>
+              Salary: 1000
+            </p>
+            <p>
+              Equity: 0.10
+            </p>
+          </div>
+          <div
+            class="text-end mt-auto pb-2 col-sm-4"
+          >
+            <button
+              class="bg-danger btn btn-secondary"
+              type="button"
+              value="1"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;
