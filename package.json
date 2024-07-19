@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently --kill-others \"npm --prefix ./backend run start\" \"npm --prefix ./frontend run dev\""
+    "dev": "concurrently --kill-others \"npm --prefix ./backend run start\" \"npm --prefix ./frontend run dev\"",
+    "postinstall": "(cd frontend && npm install) && (cd backend && npm install)"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "postinstall": "^0.10.3"
   }
 }

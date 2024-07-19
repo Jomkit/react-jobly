@@ -9,6 +9,6 @@ nav a {
     margin-right: 10px;
 }
 
-nav a.active {
+nav a.active:not(.navbar-brand) {
     color: rgb(105, 105, 236);
 }
