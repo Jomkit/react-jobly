@@ -1,5 +1,5 @@
 import { FormEvent, useContext } from 'react'
-import { sharedMethodsInterface } from '/home/jomkit/react-jobly/frontend/src/types.ts';
+import { sharedMethodsInterface } from '../../types.ts';
 import { sharedMethodsContext } from '../../components/contexts/sharedMethodsContext';
 
 const LogoutForm = () => {

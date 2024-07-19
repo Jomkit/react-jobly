@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { sharedMethodsInterface, userInterface } from '../../types';
+import { sharedMethodsInterface, userInterface } from '../../types.ts';
 import { Form, Formik } from 'formik';
 import TextInput from '../../components/formikComponents/TextInput';
 import { sharedMethodsContext } from '../../components/contexts/sharedMethodsContext';
