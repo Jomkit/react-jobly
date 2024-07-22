@@ -1,9 +1,9 @@
-import { render, waitFor } from "@testing-library/react";
-import JobList from "../JobList";
-import JoblyApi from "../../../api";
-import { TESTJOBS, TESTUSER } from "../../../__tests__/_testCommon";
 import { MemoryRouter } from "react-router-dom";
+import { TESTJOBS, TESTUSER } from "../../../__tests__/_testCommon";
+import JoblyApi from "../../../api";
 import { userContext } from "../../../components/contexts/userContext";
+import JobList from "../JobList";
+import { render, waitFor } from "@testing-library/react";
 
 vi.mock('../../../api.ts');
 JoblyApi.getJobs = vi.fn().mockResolvedValue(TESTJOBS);
@@ -33,4 +33,4 @@ it('should render a list of jobs with title, salary, equity, and company', async
         const jobList = getAllByRole('listitem');
         expect(jobList).toHaveLength(2);
     })
-})
+})  

@@ -3,7 +3,11 @@
 
 ## About
 React-Jobly, Jobly for short, is a SQL-driven mock job board intended to practice and exhibit my skills in React, as part of the Springboard Software Engineering Career Track curriculum.\
-Jobly's back end is programmed using Express.js and node, while its front end is written in Typescript, and set up using Vite. Testing done with Vitest. Bootstrap was also used to help style the pages. 
+Jobly's back end is programmed using Express.js and node, while its front end is written in Typescript, and set up using Vite. Testing done with Vitest. Bootstrap was also used to help style the pages.\
+Try it out at: https://jobly-frontend-mfbl.onrender.com\
+**Test username**: testuser\
+**Test password**: password
+
 
 ## Features
 * View companies

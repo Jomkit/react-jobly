@@ -32,6 +32,7 @@ exports[`should match snapshot 1`] = `
         </label>
         <input
           class="text-input"
+          disabled=""
           id="username"
           name="username"
           type="text"
