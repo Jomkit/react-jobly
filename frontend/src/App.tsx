@@ -41,7 +41,8 @@ function App() {
   },[token]);
 
   const signup = async (values: userInterface) => {
-    const { token }: { token: string } = await JoblyApi.register(values);
+    const { applications, ...newUserValues } = values;
+    const { token }: { token: string } = await JoblyApi.register(newUserValues);
     setToken(token);
   } 
 

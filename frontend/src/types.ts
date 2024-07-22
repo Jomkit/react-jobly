@@ -22,7 +22,7 @@ interface userInterface {
   firstName: string;
   lastName: string;
   email: string;
-  applications: number[];
+  applications?: number[];
 }
 
 interface propsListInterface {

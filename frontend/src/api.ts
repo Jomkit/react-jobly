@@ -1,9 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { userInterface } from "./types";
 
-const BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:3001";
-// console.log("inside process.env", process.env);
-console.log("inside import meta", import.meta);
+const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3001";
 
 /** API Class.
  *
@@ -57,7 +55,6 @@ export default class JoblyApi {
     }
 
     let res = await this.request(url);
-    console.log("RES HERE", res);
     return res.companies;
   }
   
@@ -100,7 +97,6 @@ export default class JoblyApi {
   // for user to login
   static async login(username: string, password: string) {
     let res = await this.request("auth/token", { username, password }, "post");
-    console.log("inside api.ts,", res);
     this.token = res.token;
     return res;
   }
