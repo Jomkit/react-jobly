@@ -13,17 +13,20 @@ import useLocalStorage from './components/hooks/useLocalStorage.tsx';
 function App() {
   const [token, setToken] = useLocalStorage('currUserToken');
   const [ currUser, setCurrUser ] = useState<userInterface | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   // get current user info when userToken changes (going from null to
   // actual token when user signs up or logs in)
+
   useEffect(() => {
     const getCurrUser = async (userToken: string) => {
+      setIsLoading(true);
       try{
         const { username } = jwtDecode<JwtPayload & {username: string}>(userToken);
         const user = await JoblyApi.getUser(username);
         setCurrUser(user);
-        
+        setIsLoading(false);
       }catch(e: any){
         console.log("No user found");
         console.error(e);
@@ -80,6 +83,10 @@ const login = async ({username, password}: {username: string, password: string})
     if(currUser?.applications){
       currUser.applications.push(+jobId);
     }
+  }
+  
+  if(isLoading) {
+    return (<h3 className='text-center text-white pt-5'>Loading...</h3>);
   }
   
   return (

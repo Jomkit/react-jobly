@@ -14,7 +14,7 @@ const Profile = () => {
       <div>
         <div className="text-white">
           <h1 className="display-1">{currUser.username}</h1>
-          <p>Number of applications: {currUser.applications.length}</p>
+          <p>Number of applications: {currUser.applications && currUser.applications.length}</p>
         </div>
           <ProfileUpdate />
       </div>

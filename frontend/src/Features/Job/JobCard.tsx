@@ -30,7 +30,7 @@ const JobCard = ({ id, title, salary, equity, companyName }: jobsInterface) => {
                         <p>Equity: { equity === null ? "n/a" : (+equity).toFixed(2) }</p>
                     </Col>
                     <Col sm="4" className='text-end mt-auto pb-2'>
-                    { currUser.applications.includes(id) ? 
+                    { currUser.applications && currUser.applications.includes(id) ? 
                         <Button className='bg-danger' onClick={handleClick} disabled>Apply</Button>
                         :
                         <Button className='bg-danger' value={id} onClick={handleClick} disabled={isDisabled}>Apply</Button>
