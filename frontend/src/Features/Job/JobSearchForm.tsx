@@ -15,7 +15,6 @@ const JobSearchForm = ({ setData }: { setData: Function }) => {
     async function getFiltered(filterParams: jobsFormInterface) {
         try{
             const res = await JoblyApi.getJobs(filterParams);
-            console.log("Filtering...");
             setData(res);
         } catch(e: any){
             console.log("Oops, something went wrong...");

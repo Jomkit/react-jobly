@@ -47,6 +47,8 @@ function App() {
     const { applications, ...newUserValues } = values;
     const { token }: { token: string } = await JoblyApi.register(newUserValues);
     setToken(token);
+    setIsLoading(true);
+
   } 
 
  /**
@@ -60,6 +62,8 @@ const login = async ({username, password}: {username: string, password: string})
     try{
       let { token }: { token: string } = await JoblyApi.login(username, password);
       setToken(token);
+      setIsLoading(true);
+
     } catch(e: any){
       console.error(e);
       navigate("/incorrect-credentials");

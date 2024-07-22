@@ -57,6 +57,7 @@ interface textInputInterface {
   initialValue?: string;
   type: string;
   readOnly?: boolean;
+  disabled?: boolean;
 }
 
 export type { companiesInterface, jobsInterface, userInterface, propsListInterface, companyFormInterface, jobsFormInterface, sharedMethodsInterface, textInputInterface }

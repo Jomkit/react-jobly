@@ -31,7 +31,11 @@ const SearchForm = ({ setData }: { setData: Function }) => {
 
     function handleSubmit(evt: React.FormEvent){
         evt.preventDefault();
-        
+        if(+formData.minEmployees > +formData.maxEmployees) {
+            alert("Minimum employees cannot be greater than maximum employees");
+            setFormData(initialState);
+            return;
+        }
         getFiltered(formData);
     }
 

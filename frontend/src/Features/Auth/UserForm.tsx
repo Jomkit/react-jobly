@@ -71,7 +71,7 @@ const UserForm = ({pageTitle, handleSubmit, defaultValues = initialState}: { pag
             <Form className="d-flex flex-column col col-6 m-auto p-5 pt-3 border border-3 rounded border-dark bg-white">
                 {pageTitle.toLowerCase().includes("edit") ?
                 <>
-                    <TextInput label="Username" name='username' id='username' type="text" />
+                    <TextInput label="Username" name='username' id='username' type="text" disabled />
                 </>
                 :
                 <>
