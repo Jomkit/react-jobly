@@ -7,17 +7,19 @@ import Login from '../Features/Auth/Login';
 import Profile from '../Features/User/Profile';
 import UnauthorizedAccess from '../Features/ErrorPages/UnauthorizedAccess';
 import IncorrectCredentials from '../Features/ErrorPages/IncorrectCredentials';
+import ProtectedRoutes from './ProtectedRoutes';
 
 const RoutesList = () => {
   return (
     <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/companies" element={<Companies />} />
-
-        <Route path="/companies/:company" element={<Company />} />
-        <Route path="/jobs" element={<Jobs />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/companies" element={<Companies />} />
+          <Route path="/companies/:company" element={<Company />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route path="/:loginParam" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path='/unauthorized-access' element={<UnauthorizedAccess />} />
         <Route path='/incorrect-credentials' element={<IncorrectCredentials />} />
 

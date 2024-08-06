@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import JoblyApi from "../../api.ts";
 import { jobsInterface } from "../../types.ts";
 import JobCard from "../Job/JobCard.tsx";
-import { userContext } from "../../components/contexts/userContext.tsx";
 
 interface companyInterface {
   name: string;
@@ -13,13 +12,6 @@ interface companyInterface {
 }
 
 const Company = () => {
-    
-  const currUser = useContext(userContext);
-  if(!currUser) {
-    console.log(currUser);
-    return (<Navigate to="/unauthorized-access" />);
-  }
-  
   const [ cmp, setCmp ] = useState<companyInterface | null>(null);
   const { company: handle } = useParams();
   
